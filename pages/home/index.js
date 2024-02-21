@@ -1,37 +1,80 @@
 import React, { useState, useEffect } from "react";
-import monitoData from "../../data/monito.json";
-import { Header } from "../../components/sections/Header";
-import { OurPets } from "../../components/sections/OurPets";
-import { OurProducts } from "../../components/sections/OurProducts";
-import { OurNews } from "../../components/sections/OurNews";
-import { SectionHeader } from "../../components/sections/SectionHeader";
-import { PetSeller } from "../../components/sections/PetSeller";
-import { Adoption } from "../../components/sections/Adoption";
+import dataImages from "../../data/image.json";
+import { StarRating } from "../../components/StarRating";
+import { ImageCarousel } from "../../components/ImageCaraousel";
 
 const App = () => {
-  const [headerSection, setHeaderSection] = useState({});
-  const [ourPets, setOurPetSection] = useState({});
-  const [ourProducts, setOurProductSection] = useState({});
-  const [ourNews, setOurNewsSection] = useState({});
-  const [adoption, setAdoption] = useState({});
+  const [animalList, setAnimalList] = useState([]);
+  const [resImages, setSearchImage] = useState([]);
 
   useEffect(() => {
-    setHeaderSection(monitoData?.data?.header);
-    setOurPetSection(monitoData?.data?.our_pets);
-    setOurProductSection(monitoData?.data?.our_products);
-    setOurNewsSection(monitoData?.data?.our_news);
-    setAdoption(monitoData?.data?.adoption);
+    const arrData = dataImages.filter((i, idx) => idx < 12);
+    setAnimalList(arrData);
+    setSearchImage(arrData);
   }, []);
+
+  const handleChangeSearch = (e) => {
+    e.preventDefault();
+    const search = e.target.value;
+    
+    const fetchData = dataImages.filter((item, idx) => item.title.includes(search) && idx < 12);
+    setAnimalList(fetchData);
+  };
 
   return (
     <React.Fragment>
-      <Header data={headerSection} />
-      <OurPets data={ourPets} />
-      <SectionHeader data={headerSection} />
-      <OurProducts data={ourProducts} />
-      <PetSeller />
-      <Adoption data={adoption} />
-      <OurNews data={ourNews} />
+      <div className="content-wrapper">
+        <h2>HW GROUP TEST</h2>
+        <h4>(Autocomplete, Photo Gallery, Image Carousel, Tooltip, Rating Widget / Star Rating).</h4>
+      </div>
+      <div className="form">
+        <div className="form-search">
+          <i className="fa fa-search"></i>
+          <input
+            type="text"
+            name="search"
+            onChange={handleChangeSearch}
+            className="form-control form-input"
+            placeholder="Search autocomplete..."
+          />
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="gallery">
+          <h2>Gallery Photos</h2>
+          {animalList && animalList.length > 0 ? (
+            <div className="gallery-wrap gallery-grid">
+              {animalList && animalList.map((data, index) => {
+                return (
+                  <div key={index}>
+                    <img src={data.image_url} alt={data.title} />
+                    <div className="gallery-detail">
+                      <div className={`label ${data.is_featured ? 'label-blue' : 'label-red'}`}>
+                        {data.is_featured ? "Available" : "Sold Out"}
+                      </div>
+                      <StarRating rating={data.rating} />
+                    </div>
+                    <div className="gallery-title">
+                      {data.title}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="not-found">
+              Data not found, please try again with key that right
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="section">
+        <div className="caraousel">
+          <h2>Image Caraousel</h2>
+          <ImageCarousel data={resImages} />
+        </div>
+      </div>
     </React.Fragment>
   );
 };
