@@ -1,0 +1,58 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #121212;
+  color: #fff;
+  padding: 1.5rem;
+}
+
+.navbar-logo a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  img {
+    width: 2rem;
+  }
+}
+
+.navbar-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  span {
+    font-weight: bold;
+    display: block;
+  }
+}
+
+.navbar-menu li {
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: right;
+}
+
+.navbar-menu li:last-child {
+  margin-right: 0;
+}
+
+.navbar-menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.profile-circle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #ccc;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8KU5mubje9NAmkcLmH2XofQz5VX1_Jv45mVpQIWUD94fMinXbV3pHv9-GRGD1neXFa4o&usqp=CAU');
+  background-size: cover;
+  background-position: center;
+}
