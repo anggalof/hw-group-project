@@ -1,6 +1,24 @@
-@import "./components/home";
 @import "./components/navbar";
 @import "./components/global";
-@import "./components/rating";
-@import "./components/caraousal";
 @import "./components/footer";
+@import "./components/sections/header";
+@import "./components/sections/ouritems";
+@import "./components/sections/section-header";
+@import "./components/elements/button";
+@import "./components/elements/rectangle";
+@import "./fonts.scss";
+
+
+body,
+html {
+  font-family: "SVN-Gilroy", sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  color: #777;
+  font-weight: 400;
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+  margin: 0;
+}
+

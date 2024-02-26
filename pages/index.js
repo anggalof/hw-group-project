@@ -1,7 +1,7 @@
 import App from "./home";
 
-function Home() {
+function Base() {
   return <App />;
 }
 
-export default Home;
+export default Base;

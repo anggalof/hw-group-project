@@ -1,0 +1,139 @@
+@import "../../variable.scss";
+
+#header {
+  background: linear-gradient(to right, #FCEED5, #FFE7BA);
+  padding: 0rem 1rem 0;
+  color: $primary-color;
+  position: relative;
+  overflow: hidden;
+
+}
+
+#adoption {
+  background: linear-gradient(to right, #FCEED5, #FFE7BA);
+  padding: 0rem 4rem 0;
+  margin: 4rem 0 0;
+  color: $primary-color;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+  height: 29rem;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: static;
+    height: auto;
+  }
+
+  .header-detail {
+    width: 40%;
+    padding: 4rem 0 0;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 1rem 0 0;
+    }
+
+    .tagline {
+      text-transform: capitalize;
+      margin-bottom: 0.6rem;
+      position: relative;
+      z-index: 9999;
+
+      .tagline_start {
+        font-family: "SVN-Gilroy-Bold", sans-serif;
+        font-size: 60px;
+        line-height: 68px;
+        font-weight: 800;
+
+        @media (max-width: 768px) {
+          font-size: 40px;
+          line-height: 60px;
+        }
+      }
+
+      .tagline_end {
+        font-family: "SVN-Gilroy-Medium", sans-serif;
+        font-size: 40px;
+        line-height: 60px;
+        font-weight: 700;
+
+        @media (max-width: 768px) {
+          font-size: 25px;
+          line-height: 38px;
+        }
+      }
+
+      .tagline_end-adoption {
+        font-family: "SVN-Gilroy-Medium", sans-serif;
+        font-size: 25px;
+        line-height: 60px;
+        font-weight: 700;
+      }
+    }
+
+    .description {
+      font-size: 14px;
+      color: $neutral-color;
+      line-height: 24px;
+      font-weight: 500;
+
+      @media (max-width: 768px) {
+        font-size: 11px;
+        line-height: 18px;
+      }
+    }
+
+    .overview {
+      display: flex;
+      justify-content: center;
+      width: 20rem;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+  }
+
+  .header-image {
+    display: flex;
+    width: 35rem;
+    position: absolute;
+    right: 2rem;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      position: relative;
+      right: auto;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      z-index: 9999;
+    }
+  }
+
+  .header-image-adoption {
+    display: flex;
+    margin: 0 auto;
+    width: 47rem;
+    position: absolute;
+    right: -5rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      z-index: 9999;
+    }
+  }
+}
